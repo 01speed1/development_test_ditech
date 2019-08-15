@@ -2,6 +2,8 @@ version: '3'
 volumes:
   postgres_data:
     driver: local
+  node_modules_data:
+    driver: local
 services:
 
   db:
@@ -25,7 +27,7 @@ services:
       dockerfile: Dockerfile
     volumes:
       - ./client:/client
-      - ./client/node_modules
+      - node_modules_data:/client/node_modules
     environment:
       - NODE_ENV=development
     ports:
