@@ -7,6 +7,7 @@ RUN gem install bundler
 
 RUN curl -sL https://deb.nodesource.com/setup_10.x | bash - && \
 apt-get install -y nodejs bc postgresql-client && \
+npm install -g create-react-app && \
 rm -rf /var/lib/apt/lists/*
 
 RUN mkdir /myapp
