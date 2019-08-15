@@ -6,9 +6,8 @@ ENV LC_ALL=C.UTF-8
 RUN gem install bundler
 
 RUN curl -sL https://deb.nodesource.com/setup_10.x | bash - && \
-    apt-get install -y nodejs bc postgresql-client && \
-
-    rm -rf /var/lib/apt/lists/*
+apt-get install -y nodejs bc postgresql-client && \
+rm -rf /var/lib/apt/lists/*
 
 RUN mkdir /myapp
 WORKDIR /myapp
