@@ -1,15 +1,15 @@
 FROM ruby:2.5.5
 
-ENV LANG=C.UTF-
+ENV LANG=C.UTF-8
 ENV LC_ALL=C.UTF-8
 
 RUN gem install bundler
 
 RUN curl -sL https://deb.nodesource.com/setup_10.x | bash - && \
-    apt-get install -y nodejs bc && \
+    apt-get install -y nodejs bc postgresql-client && \
+
     rm -rf /var/lib/apt/lists/*
 
-RUN apt-get update -qq && apt-get install -y nodejs postgresql-client
 RUN mkdir /myapp
 WORKDIR /myapp
 COPY Gemfile /myapp/Gemfile
@@ -24,4 +24,4 @@ ENTRYPOINT ["entrypoint.sh"]
 EXPOSE 3000
 
 # Start the main process.
-#CMD ["rails", "server", "-b", "0.0.0.0"]
+CMD ["rails", "s", "-b", "0.0.0.0"]

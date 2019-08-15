@@ -7,6 +7,5 @@ npm install
 
 rm -f /myapp/tmp/pids/server.pid
 
-
 #entrypoint for docker
 bundle exec "$@"
